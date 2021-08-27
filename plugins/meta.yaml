@@ -17,4 +17,4 @@ spec:
     memoryLimit: '512M'
     args: ['/remote-endpoint/plugin-remote-endpoint']
   extensions:
-  - https://github.com/kahlai/chef_codeready/raw/master/plugins/chef-software.Chef-2.1.0
+  - https://github.com/kahlai/chef_codeready/raw/master/plugins/chef-software.Chef-2.1.0.vsix
