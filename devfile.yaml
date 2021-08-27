@@ -1,0 +1,37 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: chef_codeready-
+projects:
+  - name: chef_codeready
+    source:
+      location: 'https://github.com/kahlai/chef_codeready'
+      type: git
+      branch: master
+components:
+  - alias: chef
+    type: dockerimage
+    image: quay.io/kahlai/chef_codeready
+    memoryLimit: 512M
+    mountSources: true
+    args:
+      - tail
+      - '-f'
+      - /dev/null
+    env:
+      - name: HOME
+        value: /projects/
+
+  - alias: chef-plugin
+    type: chePlugin
+    reference: https://raw.githubusercontent.com/kahlai/chef_codeready/master/plugins/meta.yaml
+     
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
+
+commands:
+  - name: "Chef Solo"
+    actions:
+      - type: exec
+        command:  chef-solo -c ./ribserver.rb -j ./ribserver.json
+        component: terraform
+        workdir: /projects/chef_codeready

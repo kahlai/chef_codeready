@@ -1,0 +1,20 @@
+apiVersion: v2
+publisher: Chef
+name: chef-software.Chef
+version: latest
+type: VS Code extension
+displayName: Chef Infra Extension for Visual Studio Code
+title: Chef Infra Extension for Visual Studio Code
+description: Chef Infra Extension for Visual Studio Code
+icon: https://www.eclipse.org/che/images/logo-eclipseche.svg
+repository: https://github.com/chef/vscode-chef
+category: Language
+firstPublicationDate: '2021-08-27'
+spec:
+  containers:
+  - image: quay.io/kahlai/chef_codeready
+    name: chef-codeready
+    memoryLimit: '512M'
+    args: ['/remote-endpoint/plugin-remote-endpoint']
+  extensions:
+  - https://github.com/kahlai/chef_codeready/raw/master/plugins/chef-software.Chef-2.1.0
