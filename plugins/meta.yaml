@@ -1,6 +1,6 @@
 apiVersion: v2
 publisher: Chef
-name: chef-software.Chef
+name: Chef
 version: latest
 type: VS Code extension
 displayName: Chef Infra Extension for Visual Studio Code
