@@ -33,5 +33,5 @@ commands:
     actions:
       - type: exec
         command:  chef-solo -c ./ribserver.rb -j ./ribserver.json
-        component: terraform
+        component: chef
         workdir: /projects/chef_codeready
